@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-100">
   <!-- Admin Header -->
   <nav class="bg-white shadow-md">
@@ -26,7 +28,8 @@
         <div class="flex items-center gap-4">
           <button class="text-gray-700 hover:text-blue-600 relative">
             <i class="fas fa-bell text-xl"></i>
-            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+            <span
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
           </button>
           <div class="flex items-center gap-2">
             <img src="/placeholder.svg?height=40&width=40" alt="Admin" class="w-10 h-10 rounded-full">
@@ -51,7 +54,8 @@
         <h1 class="text-3xl font-bold text-gray-900 mb-2">Property Management</h1>
         <p class="text-gray-600">Manage all your real estate listings</p>
       </div>
-      <button onclick="openAddModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 flex items-center gap-2">
+      <button onclick="openAddModal()"
+        class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 flex items-center gap-2">
         <i class="fas fa-plus"></i> Add New Property
       </button>
     </div>
@@ -60,10 +64,12 @@
     <div class="bg-white rounded-lg shadow-md p-6 mb-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div>
-          <input type="text" placeholder="Search properties..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <input type="text" placeholder="Search properties..."
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
         </div>
         <div>
-          <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <select
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             <option>All Status</option>
             <option>For Sale</option>
             <option>For Rent</option>
@@ -72,7 +78,8 @@
           </select>
         </div>
         <div>
-          <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <select
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             <option>All Types</option>
             <option>House</option>
             <option>Apartment</option>
@@ -81,7 +88,8 @@
           </select>
         </div>
         <div>
-          <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <select
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             <option>Sort by: Newest</option>
             <option>Sort by: Oldest</option>
             <option>Sort by: Price High</option>
@@ -324,16 +332,19 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-      
+
       <form class="p-6 space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Title</label>
-            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Modern Family Villa" required>
+            <input type="text"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="Modern Family Villa" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              required>
               <option>House</option>
               <option>Apartment</option>
               <option>Villa</option>
@@ -346,7 +357,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              required>
               <option>For Sale</option>
               <option>For Rent</option>
               <option>Pending</option>
@@ -355,38 +367,49 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="$1,250,000" required>
+            <input type="text"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="$1,250,000" required>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-          <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="123 Luxury Lane, Beverly Hills, CA 90210" required>
+          <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            placeholder="123 Luxury Lane, Beverly Hills, CA 90210" required>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bedrooms</label>
-            <input type="number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="4" required>
+            <input type="number"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="4" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bathrooms</label>
-            <input type="number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="3" required>
+            <input type="number"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="3" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Square Feet</label>
-            <input type="number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="3200" required>
+            <input type="number"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="3200" required>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-          <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter property description..." required></textarea>
+          <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter property description..." required></textarea>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Property Images</label>
-          <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 cursor-pointer">
+          <div
+            class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 cursor-pointer">
             <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
             <p class="text-gray-600">Click to upload or drag and drop</p>
             <p class="text-sm text-gray-500 mt-1">PNG, JPG up to 10MB</p>
@@ -397,7 +420,8 @@
           <button type="submit" class="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
             Add Property
           </button>
-          <button type="button" onclick="closeAddModal()" class="px-6 py-3 border border-gray-300 rounded-lg font-semibold hover:bg-gray-50">
+          <button type="button" onclick="closeAddModal()"
+            class="px-6 py-3 border border-gray-300 rounded-lg font-semibold hover:bg-gray-50">
             Cancel
           </button>
         </div>
@@ -414,18 +438,20 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-      
+
       <form class="p-6 space-y-4" onsubmit="saveProperty(event)">
         <input type="hidden" id="edit_propertyId">
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Title</label>
-            <input type="text" id="edit_title" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="text" id="edit_title"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-            <select id="edit_type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select id="edit_type"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
               <option>House</option>
               <option>Apartment</option>
               <option>Villa</option>
@@ -438,7 +464,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-            <select id="edit_status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select id="edit_status"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
               <option>For Sale</option>
               <option>For Rent</option>
               <option>Pending</option>
@@ -447,37 +474,45 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-            <input type="text" id="edit_price" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="text" id="edit_price"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-          <input type="text" id="edit_location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+          <input type="text" id="edit_location"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bedrooms</label>
-            <input type="number" id="edit_bedrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_bedrooms"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bathrooms</label>
-            <input type="number" id="edit_bathrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_bathrooms"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Square Feet</label>
-            <input type="number" id="edit_sqft" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_sqft"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-          <textarea rows="4" id="edit_description" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter property description..."></textarea>
+          <textarea rows="4" id="edit_description"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter property description..."></textarea>
         </div>
 
         <div class="flex justify-end gap-3 pt-4 border-t">
-          <button type="button" onclick="closeEditModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
+          <button type="button" onclick="closeEditModal()"
+            class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
             Cancel
           </button>
           <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
@@ -489,17 +524,7 @@
   </div>
 
   <script>
-    // Check authentication
-    function checkAuth() {
-      if (localStorage.getItem('adminLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
-      } else {
-        const email = localStorage.getItem('adminEmail');
-        if (email) {
-          document.getElementById('adminName').textContent = email.split('@')[0];
-        }
-      }
-    }
+
 
     function handleLogout() {
       if (confirm('Are you sure you want to logout?')) {
@@ -613,8 +638,8 @@
       location.reload();
     }
 
-    // Run auth check on page load
-    checkAuth();
+
   </script>
 </body>
+
 </html>

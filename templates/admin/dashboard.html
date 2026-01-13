@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-100">
   <!-- Admin Header -->
   <nav class="bg-white shadow-md">
@@ -26,7 +28,8 @@
         <div class="flex items-center gap-4">
           <button class="text-gray-700 hover:text-blue-600 relative">
             <i class="fas fa-bell text-xl"></i>
-            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+            <span
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
           </button>
           <div class="flex items-center gap-2">
             <img src="/placeholder.svg?height=40&width=40" alt="Admin" class="w-10 h-10 rounded-full">
@@ -141,7 +144,8 @@
                 <tr class="border-b hover:bg-gray-50">
                   <td class="py-4 px-4">
                     <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property" class="w-16 h-12 object-cover rounded">
+                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
+                        class="w-16 h-12 object-cover rounded">
                       <div>
                         <p class="font-semibold text-gray-900 text-sm">Modern Family Villa</p>
                         <p class="text-xs text-gray-600">Beverly Hills, CA</p>
@@ -155,7 +159,9 @@
                   <td class="py-4 px-4 text-gray-600">1,234</td>
                   <td class="py-4 px-4">
                     <div class="flex gap-2">
-                      <button onclick="editProperty(1, 'Modern Family Villa', 'Villa', 'For Sale', '$1,250,000', 'Beverly Hills, CA', 4, 3, 3200)" class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
+                      <button
+                        onclick="editProperty(1, 'Modern Family Villa', 'Villa', 'For Sale', '$1,250,000', 'Beverly Hills, CA', 4, 3, 3200)"
+                        class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
                       <button class="text-red-600 hover:text-red-700"><i class="fas fa-trash"></i></button>
                     </div>
                   </td>
@@ -163,7 +169,8 @@
                 <tr class="border-b hover:bg-gray-50">
                   <td class="py-4 px-4">
                     <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property" class="w-16 h-12 object-cover rounded">
+                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
+                        class="w-16 h-12 object-cover rounded">
                       <div>
                         <p class="font-semibold text-gray-900 text-sm">Downtown Apartment</p>
                         <p class="text-xs text-gray-600">Manhattan, NY</p>
@@ -177,7 +184,9 @@
                   <td class="py-4 px-4 text-gray-600">892</td>
                   <td class="py-4 px-4">
                     <div class="flex gap-2">
-                      <button onclick="editProperty(2, 'Downtown Apartment', 'Apartment', 'For Rent', '$3,500/mo', 'Manhattan, NY', 2, 2, 1200)" class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
+                      <button
+                        onclick="editProperty(2, 'Downtown Apartment', 'Apartment', 'For Rent', '$3,500/mo', 'Manhattan, NY', 2, 2, 1200)"
+                        class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
                       <button class="text-red-600 hover:text-red-700"><i class="fas fa-trash"></i></button>
                     </div>
                   </td>
@@ -185,7 +194,8 @@
                 <tr class="border-b hover:bg-gray-50">
                   <td class="py-4 px-4">
                     <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property" class="w-16 h-12 object-cover rounded">
+                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
+                        class="w-16 h-12 object-cover rounded">
                       <div>
                         <p class="font-semibold text-gray-900 text-sm">Lakefront Retreat</p>
                         <p class="text-xs text-gray-600">Lake Tahoe, NV</p>
@@ -199,7 +209,9 @@
                   <td class="py-4 px-4 text-gray-600">1,567</td>
                   <td class="py-4 px-4">
                     <div class="flex gap-2">
-                      <button onclick="editProperty(3, 'Lakefront Retreat', 'House', 'For Sale', '$2,100,000', 'Lake Tahoe, NV', 5, 4, 4500)" class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
+                      <button
+                        onclick="editProperty(3, 'Lakefront Retreat', 'House', 'For Sale', '$2,100,000', 'Lake Tahoe, NV', 5, 4, 4500)"
+                        class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
                       <button class="text-red-600 hover:text-red-700"><i class="fas fa-trash"></i></button>
                     </div>
                   </td>
@@ -213,19 +225,23 @@
         <div class="bg-white rounded-lg shadow-md p-6">
           <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <a href="properties.html" class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors">
+            <a href="properties.html"
+              class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors">
               <i class="fas fa-plus-circle text-blue-600 text-3xl mb-2"></i>
               <span class="text-sm font-semibold text-gray-700">Add Property</span>
             </a>
-            <button onclick="exportData()" class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-green-600 hover:bg-green-50 transition-colors">
+            <button onclick="exportData()"
+              class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-green-600 hover:bg-green-50 transition-colors">
               <i class="fas fa-file-export text-green-600 text-3xl mb-2"></i>
               <span class="text-sm font-semibold text-gray-700">Export Data</span>
             </button>
-            <button onclick="viewReports()" class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-purple-600 hover:bg-purple-50 transition-colors">
+            <button onclick="viewReports()"
+              class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-purple-600 hover:bg-purple-50 transition-colors">
               <i class="fas fa-chart-line text-purple-600 text-3xl mb-2"></i>
               <span class="text-sm font-semibold text-gray-700">View Reports</span>
             </button>
-            <button onclick="openSettingsModal()" class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-yellow-600 hover:bg-yellow-50 transition-colors">
+            <button onclick="openSettingsModal()"
+              class="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-yellow-600 hover:bg-yellow-50 transition-colors">
               <i class="fas fa-cog text-yellow-600 text-3xl mb-2"></i>
               <span class="text-sm font-semibold text-gray-700">Settings</span>
             </button>
@@ -248,7 +264,9 @@
                   <p class="text-xs text-gray-500 mt-1">2 hours ago</p>
                 </div>
               </div>
-              <button onclick="viewInquiry('John Smith', 'john.smith@email.com', 'Modern Family Villa', 'I am interested in scheduling a viewing for this property. Is it still available?', '2 hours ago')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
+              <button
+                onclick="viewInquiry('John Smith', 'john.smith@email.com', 'Modern Family Villa', 'I am interested in scheduling a viewing for this property. Is it still available?', '2 hours ago')"
+                class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
             </div>
 
             <div class="pb-4 border-b">
@@ -260,7 +278,9 @@
                   <p class="text-xs text-gray-500 mt-1">5 hours ago</p>
                 </div>
               </div>
-              <button onclick="viewInquiry('Sarah Johnson', 'sarah.j@email.com', 'Downtown Apartment', 'Could you provide more details about the monthly maintenance fees and utilities included?', '5 hours ago')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
+              <button
+                onclick="viewInquiry('Sarah Johnson', 'sarah.j@email.com', 'Downtown Apartment', 'Could you provide more details about the monthly maintenance fees and utilities included?', '5 hours ago')"
+                class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
             </div>
 
             <div class="pb-4">
@@ -272,7 +292,9 @@
                   <p class="text-xs text-gray-500 mt-1">1 day ago</p>
                 </div>
               </div>
-              <button onclick="viewInquiry('Mike Wilson', 'mike.wilson@email.com', 'Lakefront Retreat', 'Is this property pet-friendly? I have two dogs and would like to know if they are welcome.', '1 day ago')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
+              <button
+                onclick="viewInquiry('Mike Wilson', 'mike.wilson@email.com', 'Lakefront Retreat', 'Is this property pet-friendly? I have two dogs and would like to know if they are welcome.', '1 day ago')"
+                class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Message →</button>
             </div>
           </div>
         </div>
@@ -328,18 +350,20 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-      
+
       <form class="p-6 space-y-4" onsubmit="saveProperty(event)">
         <input type="hidden" id="edit_propertyId">
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Title</label>
-            <input type="text" id="edit_title" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="text" id="edit_title"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-            <select id="edit_type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select id="edit_type"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
               <option>House</option>
               <option>Apartment</option>
               <option>Villa</option>
@@ -352,7 +376,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-            <select id="edit_status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <select id="edit_status"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
               <option>For Sale</option>
               <option>For Rent</option>
               <option>Pending</option>
@@ -361,32 +386,38 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-            <input type="text" id="edit_price" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="text" id="edit_price"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-          <input type="text" id="edit_location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+          <input type="text" id="edit_location"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bedrooms</label>
-            <input type="number" id="edit_bedrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_bedrooms"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Bathrooms</label>
-            <input type="number" id="edit_bathrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_bathrooms"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Square Feet</label>
-            <input type="number" id="edit_sqft" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            <input type="number" id="edit_sqft"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
           </div>
         </div>
 
         <div class="flex justify-end gap-3 pt-4 border-t">
-          <button type="button" onclick="closeEditModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
+          <button type="button" onclick="closeEditModal()"
+            class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
             Cancel
           </button>
           <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
@@ -406,7 +437,7 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-      
+
       <div class="p-6 space-y-4">
         <div class="bg-gray-50 p-4 rounded-lg">
           <div class="flex items-center gap-3 mb-4">
@@ -429,14 +460,17 @@
 
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-2">Reply</label>
-          <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" rows="4" placeholder="Type your reply here..."></textarea>
+          <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" rows="4"
+            placeholder="Type your reply here..."></textarea>
         </div>
 
         <div class="flex justify-end gap-3 pt-4 border-t">
-          <button onclick="closeInquiryModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
+          <button onclick="closeInquiryModal()"
+            class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
             Close
           </button>
-          <button onclick="sendReply()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+          <button onclick="sendReply()"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
             <i class="fas fa-paper-plane mr-2"></i>Send Reply
           </button>
         </div>
@@ -453,7 +487,7 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-      
+
       <div class="p-6">
         <!-- Profile Settings -->
         <div class="mb-8">
@@ -462,16 +496,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input type="text" value="Admin User" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <input type="text" value="Admin User"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" value="admin@dreamhome.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <input type="email" value="admin@dreamhome.com"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
               </div>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-              <input type="tel" value="+1 (555) 123-4567" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <input type="tel" value="+1 (555) 123-4567"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
             </div>
           </div>
         </div>
@@ -482,16 +519,19 @@
           <div class="space-y-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
-              <input type="password" placeholder="Enter current password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <input type="password" placeholder="Enter current password"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
-                <input type="password" placeholder="Enter new password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <input type="password" placeholder="Enter new password"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-                <input type="password" placeholder="Confirm new password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <input type="password" placeholder="Confirm new password"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
               </div>
             </div>
           </div>
@@ -508,7 +548,9 @@
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" checked class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                <div
+                  class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                </div>
               </label>
             </div>
             <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -518,7 +560,9 @@
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" checked class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                <div
+                  class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                </div>
               </label>
             </div>
             <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -528,7 +572,9 @@
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                <div
+                  class="w-11 h-6 bg-gray-300 peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                </div>
               </label>
             </div>
           </div>
@@ -560,10 +606,12 @@
         </div>
 
         <div class="flex justify-end gap-3 pt-6 border-t mt-6">
-          <button onclick="closeSettingsModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
+          <button onclick="closeSettingsModal()"
+            class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
             Cancel
           </button>
-          <button onclick="saveSettings()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+          <button onclick="saveSettings()"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
             Save Settings
           </button>
         </div>
@@ -573,16 +621,7 @@
 
   <script>
     // Check authentication
-    function checkAuth() {
-      if (localStorage.getItem('adminLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
-      } else {
-        const email = localStorage.getItem('adminEmail');
-        if (email) {
-          document.getElementById('adminName').textContent = email.split('@')[0];
-        }
-      }
-    }
+
 
     function handleLogout() {
       if (confirm('Are you sure you want to logout?')) {
@@ -662,8 +701,8 @@
       alert('Opening reports dashboard...');
     }
 
-    // Run auth check on page load
-    checkAuth();
+
   </script>
 </body>
+
 </html>

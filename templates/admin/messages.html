@@ -433,13 +433,7 @@
   </div>
 
   <script>
-    // Check authentication
-    window.onload = function () {
-      const isAuthenticated = localStorage.getItem('adminLoggedIn');
-      if (!isAuthenticated) {
-        window.location.href = 'login.html';
-      }
-    };
+
 
     function handleLogout() {
       if (confirm('Are you sure you want to logout?')) {

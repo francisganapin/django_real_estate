@@ -24,7 +24,8 @@
           <a href="{% url 'front_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
           <a href="{% url 'property_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
           <a href="{% url 'contact_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
-          <a href="admin/login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a>
+          <a href="{% url 'admin_login' %}"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a>
         </div>
         <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
           <i class="fas fa-bars text-2xl"></i>
@@ -37,7 +38,7 @@
         <a href="{% url 'front_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
         <a href="{% url 'property_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Properties</a>
         <a href="{% url 'contact_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Contact</a>
-        <a href="admin/login.html"
+        <a href="{% url admin_login' %}"
           class="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center">Admin</a>
       </div>
     </div>
@@ -83,8 +84,8 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ property.title }}</h1>
-                <p class="text-gray-600"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>123 Luxury Lane,
-                  Beverly Hills, CA 90210</p>
+                <p class="text-gray-600"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>{{ property.address }},
+                  {{ property.city }}, {{ property.state }} {{ property.zip_code }}</p>
               </div>
               <span class="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-semibold">{{ property.status }}</span>
             </div>
@@ -161,20 +162,26 @@
               <p class="text-gray-600"><i class="fas fa-map-marked-alt text-4xl mb-2"></i><br>Map View</p>
             </div>
             <div class="mt-4 grid grid-cols-2 gap-4">
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Nearby Schools</h3>
+
+
+              {% for location_type, locations in grouped_locations.items %}
+              {% if locations %}
+              <div class="mb-4">
+                <h3 class="font-semibold text-gray-900 mb-2">
+                  {{ location_type }}
+                </h3>
+
                 <ul class="text-sm text-gray-600 space-y-1">
-                  <li><i class="fas fa-graduation-cap mr-2 text-blue-600"></i>Beverly Hills High - 0.8 miles</li>
-                  <li><i class="fas fa-graduation-cap mr-2 text-blue-600"></i>Horace Mann Elementary - 0.5 miles</li>
+                  {% for loc in locations %}
+                  <li>
+                    {{ loc.name }} – {{ loc.distance }} {{ loc.distance_unit }}
+                  </li>
+                  {% endfor %}
                 </ul>
               </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Transportation</h3>
-                <ul class="text-sm text-gray-600 space-y-1">
-                  <li><i class="fas fa-subway mr-2 text-blue-600"></i>Metro Station - 1.2 miles</li>
-                  <li><i class="fas fa-plane mr-2 text-blue-600"></i>LAX Airport - 12 miles</li>
-                </ul>
-              </div>
+              {% endif %}
+              {% endfor %}
+
             </div>
           </div>
         </div>
@@ -221,6 +228,8 @@
             </div>
           </div>
 
+
+
           <!-- Agent Info -->
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3 class="text-lg font-bold text-gray-900 mb-4">Listed By</h3>
@@ -248,13 +257,17 @@
               </a>
             </div>
           </div>
+
+
+
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12 mt-12">
+  <footer class="bg-gray-900 text-white py-1 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>

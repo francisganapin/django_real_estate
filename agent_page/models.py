@@ -102,6 +102,15 @@ class NearbyLocation(models.Model):
         ('bank', 'Bank'),
         ('mall', 'Mall'),
         ('transport', 'Transportation'),
+        ('city', 'City'),
+        ('airport', 'Airport'),
+        ('park', 'Park'),
+        ('beach', 'Beach'),
+        ('museum', 'Museum'),
+        ('zoo', 'Zoo'),
+        ('gym', 'Gym'),
+        ('supermarket', 'Supermarket'),
+        ('restaurant', 'Restaurant'),
     ]
     
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='nearby_locations')

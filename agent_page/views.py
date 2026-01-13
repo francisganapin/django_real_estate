@@ -14,25 +14,60 @@ from .models import Property
 def property_api_get(request):
 
 
+
     page = int(request.GET.get('page',1))
     page_size = int(request.GET.get('page_size',6))
     offset = (page - 1) * page_size
 
+    #Get Filter Parameters
+    property_type = request.GET.get('property_type','')
+    status_filter = request.GET.get('status','')
+    min_price = request.GET.get('min_price','')
+    max_price = request.GET.get('max_price','')
+
+    conditions = []
+    params = []
+
+    if property_type:
+        conditions.append('property_type = %s')
+        params.append(property_type)
+
+    if status_filter:
+        conditions.append('status = %s')
+        params.append(status_filter)
+
+    if min_price:
+        conditions.append('price >= %s')
+        params.append(min_price)
+
+    if max_price:
+        conditions.append('price <= %s')
+        params.append(max_price)
+
+
+    where_clause = ""
+    if conditions:
+        where_clause = 'WHERE ' + ' AND '.join(conditions)   
+
+
+
     with connection.cursor() as cursor:
-        cursor.execute("SELECT count(*) FROM agent_page_property")
+        cursor.execute(f"SELECT count(*) FROM agent_page_property {where_clause}",params)
 
         columns = [col[0] for col in cursor.description]
         total_count = cursor.fetchone()[0]
 
         cursor.execute(f"""
-            SELECT title,price,bathrooms,bedrooms,
+            SELECT id,title,price,bathrooms,bedrooms,
             square_feet,city,state,
             main_image,
             status FROM agent_page_property
+
+            {where_clause}
             ORDER BY id DESC
-            LIMIT {page_size}
-            OFFSET {offset}
-        """)
+            LIMIT %s
+            OFFSET %s
+        """,params + [page_size,offset])
         columns = [col[0] for col in cursor.description]
         rows = cursor.fetchall()
         
@@ -85,3 +120,4 @@ def property_api_get_by_id(request, id):
             for n in property.nearby_locations.all()
         ]
     })
+

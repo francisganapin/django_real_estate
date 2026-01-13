@@ -24,7 +24,8 @@
           <a href="{% url 'front_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
           <a href="{% url 'property_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
           <a href="{% url 'contact_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
-          <a href="admin/login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a>
+          <a href="{% url admin_login' %}"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a>
         </div>
         <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
           <i class="fas fa-bars text-2xl"></i>
@@ -36,8 +37,8 @@
       <div class="px-4 py-3 space-y-3">
         <a href="{% url 'front_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
         <a href="properties.html" class="block text-gray-700 hover:text-blue-600 font-medium">Properties</a>
-        <a href="contact.html" class="block text-blue-600 font-medium">Contact</a>
-        <a href="admin/login.html"
+        <a href="{% url 'contact_page' %}" class="block text-blue-600 font-medium">Contact</a>
+        <a href="{% url admin_login' %}"
           class="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center">Admin</a>
       </div>
     </div>

@@ -170,7 +170,7 @@
           propertyContainer.innerHTML = '';
 
           // Access results from paginated response
-          data.results.forEach(property => {
+          data.results.slice(0, 3).forEach(property => {
             const card = `
           <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
             <img src="http://127.0.0.1:8000/media/${property.main_image || '/placeholder.svg?height=250&width=400'}" alt="Property" class="w-full h-48 object-cover">
