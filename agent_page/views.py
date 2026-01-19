@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Property
+from .models import Property,PropertyViews,PropertyInquiry
 
 
 
@@ -121,3 +121,24 @@ def property_api_get_by_id(request, id):
         ]
     })
 
+
+
+def dashboard_page(request):
+    properties = Property.objects.all()
+    count = len(properties)
+    count_active = len(properties.filter(is_active=True))
+    count_views = len(PropertyViews.objects.all())
+    count_message = len(PropertyInquiry.objects.all())
+
+    return render(request,'admin/dashboard.html',{'properties':properties[:5],'count':count,
+    'count_active':count_active,'count_views':count_views,
+    'count_message':count_message
+    
+    })
+
+def message_page(request):
+    return render(request,'admin/messages.html')
+
+def property_admin_page(request):
+    properties = Property.objects.all()
+    return render(request,'admin/properties.html',{'properties':properties})

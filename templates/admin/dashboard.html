@@ -3,10 +3,30 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8">
   <title>Admin Dashboard - DreamHome Realty</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.9);
+      transform-origin: top left;
+      width: 111.11%;
+    }
+
+    /* Add this - makes the main content grow and pushes footer down */
+    body>*:not(footer):not(nav) {
+      flex-shrink: 0;
+    }
+  </style>
+
 </head>
 
 <body class="bg-gray-100">
@@ -15,14 +35,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-8">
-          <a href="../index.html" class="flex items-center gap-2">
+          <a href="{% url 'dashboard_page' %}" class="flex items-center gap-2">
             <i class="fas fa-home text-blue-600 text-2xl"></i>
-            <span class="text-xl font-bold text-gray-900">DreamHome Realty</span>
+            <span class="text-xl font-bold text-gray-900">Well-Home's Realty</span>
           </a>
           <div class="hidden md:flex items-center gap-6">
-            <a href="dashboard.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Dashboard</a>
-            <a href="properties.html" class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
-            <a href="messages.html" class="text-gray-700 hover:text-blue-600 font-medium">Messages</a>
+            <a href="{% url 'dashboard_page' %}"
+              class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Dashboard</a>
+            <a href="{% url 'property_admin_page' %}"
+              class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
+            <a href="{% url 'message_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Messages</a>
           </div>
         </div>
         <div class="flex items-center gap-4">
@@ -32,7 +54,8 @@
               class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
           </button>
           <div class="flex items-center gap-2">
-            <img src="/placeholder.svg?height=40&width=40" alt="Admin" class="w-10 h-10 rounded-full">
+            <img src="http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="Admin"
+              class="w-10 h-10 rounded-full">
             <div class="hidden md:block">
               <p class="text-sm font-semibold text-gray-900" id="adminName">Admin User</p>
               <p class="text-xs text-gray-600">Administrator</p>
@@ -61,7 +84,7 @@
         <div class="flex items-center justify-between">
           <div>
             <p class="text-gray-600 text-sm font-medium mb-1">Total Properties</p>
-            <p class="text-3xl font-bold text-gray-900">48</p>
+            <p class="text-3xl font-bold text-gray-900">{{count}}</p>
             <p class="text-green-600 text-sm mt-2">
               <i class="fas fa-arrow-up mr-1"></i>12% from last month
             </p>
@@ -77,7 +100,7 @@
         <div class="flex items-center justify-between">
           <div>
             <p class="text-gray-600 text-sm font-medium mb-1">Active Listings</p>
-            <p class="text-3xl font-bold text-gray-900">32</p>
+            <p class="text-3xl font-bold text-gray-900">{{count_active}}</p>
             <p class="text-green-600 text-sm mt-2">
               <i class="fas fa-arrow-up mr-1"></i>8% from last month
             </p>
@@ -93,7 +116,7 @@
         <div class="flex items-center justify-between">
           <div>
             <p class="text-gray-600 text-sm font-medium mb-1">Total Views</p>
-            <p class="text-3xl font-bold text-gray-900">12,458</p>
+            <p class="text-3xl font-bold text-gray-900">{{count_views}}</p>
             <p class="text-green-600 text-sm mt-2">
               <i class="fas fa-arrow-up mr-1"></i>24% from last month
             </p>
@@ -141,21 +164,24 @@
                 </tr>
               </thead>
               <tbody>
+
+                {% for properties in properties %}
                 <tr class="border-b hover:bg-gray-50">
                   <td class="py-4 px-4">
                     <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
+                      <img src="http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="Property"
                         class="w-16 h-12 object-cover rounded">
                       <div>
-                        <p class="font-semibold text-gray-900 text-sm">Modern Family Villa</p>
-                        <p class="text-xs text-gray-600">Beverly Hills, CA</p>
+                        <p class="font-semibold text-gray-900 text-sm">{{properties.title}}</p>
+                        <p class="text-xs text-gray-600">{{properties.city}}, {{properties.state}}</p>
                       </div>
                     </div>
                   </td>
                   <td class="py-4 px-4">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">For Sale</span>
+                    <span
+                      class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">{{properties.status}}</span>
                   </td>
-                  <td class="py-4 px-4 font-semibold text-gray-900">$1,250,000</td>
+                  <td class="py-4 px-4 font-semibold text-gray-900">{{properties.price}}</td>
                   <td class="py-4 px-4 text-gray-600">1,234</td>
                   <td class="py-4 px-4">
                     <div class="flex gap-2">
@@ -166,56 +192,9 @@
                     </div>
                   </td>
                 </tr>
-                <tr class="border-b hover:bg-gray-50">
-                  <td class="py-4 px-4">
-                    <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
-                        class="w-16 h-12 object-cover rounded">
-                      <div>
-                        <p class="font-semibold text-gray-900 text-sm">Downtown Apartment</p>
-                        <p class="text-xs text-gray-600">Manhattan, NY</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="py-4 px-4">
-                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">For Rent</span>
-                  </td>
-                  <td class="py-4 px-4 font-semibold text-gray-900">$3,500/mo</td>
-                  <td class="py-4 px-4 text-gray-600">892</td>
-                  <td class="py-4 px-4">
-                    <div class="flex gap-2">
-                      <button
-                        onclick="editProperty(2, 'Downtown Apartment', 'Apartment', 'For Rent', '$3,500/mo', 'Manhattan, NY', 2, 2, 1200)"
-                        class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
-                      <button class="text-red-600 hover:text-red-700"><i class="fas fa-trash"></i></button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b hover:bg-gray-50">
-                  <td class="py-4 px-4">
-                    <div class="flex items-center gap-3">
-                      <img src="/placeholder.svg?height=50&width=70" alt="Property"
-                        class="w-16 h-12 object-cover rounded">
-                      <div>
-                        <p class="font-semibold text-gray-900 text-sm">Lakefront Retreat</p>
-                        <p class="text-xs text-gray-600">Lake Tahoe, NV</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="py-4 px-4">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">For Sale</span>
-                  </td>
-                  <td class="py-4 px-4 font-semibold text-gray-900">$2,100,000</td>
-                  <td class="py-4 px-4 text-gray-600">1,567</td>
-                  <td class="py-4 px-4">
-                    <div class="flex gap-2">
-                      <button
-                        onclick="editProperty(3, 'Lakefront Retreat', 'House', 'For Sale', '$2,100,000', 'Lake Tahoe, NV', 5, 4, 4500)"
-                        class="text-blue-600 hover:text-blue-700"><i class="fas fa-edit"></i></button>
-                      <button class="text-red-600 hover:text-red-700"><i class="fas fa-trash"></i></button>
-                    </div>
-                  </td>
-                </tr>
+                {% endfor %}
+
+
               </tbody>
             </table>
           </div>
@@ -257,7 +236,8 @@
           <div class="space-y-4">
             <div class="pb-4 border-b">
               <div class="flex items-start gap-3 mb-2">
-                <img src="/placeholder.svg?height=40&width=40" alt="User" class="w-10 h-10 rounded-full">
+                <img src="http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="User"
+                  class="w-10 h-10 rounded-full">
                 <div class="flex-1">
                   <p class="font-semibold text-gray-900 text-sm">John Smith</p>
                   <p class="text-xs text-gray-600">Modern Family Villa</p>
@@ -271,7 +251,8 @@
 
             <div class="pb-4 border-b">
               <div class="flex items-start gap-3 mb-2">
-                <img src="/placeholder.svg?height=40&width=40" alt="User" class="w-10 h-10 rounded-full">
+                <img src="	http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="User"
+                  class="w-10 h-10 rounded-full">
                 <div class="flex-1">
                   <p class="font-semibold text-gray-900 text-sm">Sarah Johnson</p>
                   <p class="text-xs text-gray-600">Downtown Apartment</p>
@@ -285,7 +266,8 @@
 
             <div class="pb-4">
               <div class="flex items-start gap-3 mb-2">
-                <img src="/placeholder.svg?height=40&width=40" alt="User" class="w-10 h-10 rounded-full">
+                <img src="	http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="User"
+                  class="w-10 h-10 rounded-full">
                 <div class="flex-1">
                   <p class="font-semibold text-gray-900 text-sm">Mike Wilson</p>
                   <p class="text-xs text-gray-600">Lakefront Retreat</p>
@@ -441,7 +423,8 @@
       <div class="p-6 space-y-4">
         <div class="bg-gray-50 p-4 rounded-lg">
           <div class="flex items-center gap-3 mb-4">
-            <img src="/placeholder.svg?height=50&width=50" alt="User" class="w-12 h-12 rounded-full">
+            <img src="	http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="User"
+              class="w-12 h-12 rounded-full">
             <div>
               <p class="font-semibold text-gray-900" id="inquiry_name"></p>
               <p class="text-sm text-gray-600" id="inquiry_email"></p>

@@ -3,10 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DreamHome Realty - Find Your Perfect Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8">
+  <title>Well-Home's Realty - Find Your Perfect Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.9);
+      transform-origin: top left;
+      width: 111.11%;
+    }
+
+    /* Add this - makes the main content grow and pushes footer down */
+    body>*:not(footer):not(nav) {
+      flex-shrink: 0;
+    }
+  </style>
+
 </head>
 
 <body class="bg-gray-50">
@@ -17,14 +38,14 @@
         <div class="flex items-center">
           <a href="{% url 'front_page' %}" class="flex items-center gap-2">
             <i class="fas fa-home text-blue-600 text-2xl"></i>
-            <span class="text-xl font-bold text-gray-900">DreamHome Realty</span>
+            <span class="text-xl font-bold text-gray-900">Well-Home's Realty</span>
           </a>
         </div>
         <div class="hidden md:flex items-center gap-8">
           <a href="{% url 'front_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
           <a href="{% url 'property_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
           <a href="{% url 'contact_page' %}" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
-          <a href="admin/login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a>
+          <!-- -<a href="admin/login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Admin</a> -->
         </div>
         <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
           <i class="fas fa-bars text-2xl"></i>
@@ -37,32 +58,21 @@
         <a href="{% url 'front_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
         <a href="{% url 'property_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Properties</a>
         <a href="{% url 'contact_page' %}" class="block text-gray-700 hover:text-blue-600 font-medium">Contact</a>
-        <a href="admin/login.html"
-          class="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center">Admin</a>
+        <!--  <a href="admin/login.html"
+          class="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center">Admin</a> -->
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative h-[300px] flex items-center justify-center text-white">
-    <img src="/placeholder.svg?height=600&width=1920" alt="Hero" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 text-center px-4">
-      <h1 class="text-5xl md:text-6xl font-bold mb-4">Find Your Dream Home</h1>
-      <p class="text-xl md:text-2xl mb-8">Discover the perfect property that matches your lifestyle</p>
-      <a href="{% url 'property_page' %}"
-        class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 inline-block">Browse
-        Properties</a>
-    </div>
-  </section>
+
 
   <!-- Features Section -->
-  <section class="py-16 bg-white">
+  <section class="py-4 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose Us</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="text-center p-6">
-          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-100 w-16 h-8 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-search text-blue-600 text-2xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2">Wide Selection</h3>
@@ -76,7 +86,7 @@
           <p class="text-gray-600">Over 10 years of experience in real estate industry</p>
         </div>
         <div class="text-center p-6">
-          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-100 w-16 h-8 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-headset text-blue-600 text-2xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
@@ -96,9 +106,6 @@
       <div id="property-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Property Card 1 -->
 
-
-
-
       </div>
     </div>
   </section>
@@ -110,23 +117,23 @@
         <div>
           <div class="flex items-center gap-2 mb-4">
             <i class="fas fa-home text-blue-400 text-2xl"></i>
-            <span class="text-xl font-bold">DreamHome Realty</span>
+            <span class="text-xl font-bold">Well-Home's Realty</span>
           </div>
           <p class="text-gray-400">Your trusted partner in finding the perfect home.</p>
         </div>
         <div>
           <h4 class="font-semibold mb-4">Quick Links</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="index.html" class="hover:text-white">Home</a></li>
+            <li><a href="{% url 'front_page' %}" class="hover:text-white">Home</a></li>
             <li><a href="{% url 'property_page' %}" class="hover:text-white">Properties</a></li>
-            <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+            <li><a href="{% url 'contact_page' %}" class="hover:text-white">Contact</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold mb-4">Contact</h4>
           <ul class="space-y-2 text-gray-400">
             <li><i class="fas fa-phone mr-2"></i> (555) 123-4567</li>
-            <li><i class="fas fa-envelope mr-2"></i> info@dreamhome.com</li>
+            <li><i class="fas fa-envelope mr-2"></i> info@WellHome.com</li>
             <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Main St, City</li>
           </ul>
         </div>
@@ -140,7 +147,7 @@
         </div>
       </div>
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2026 DreamHome Realty. All rights reserved.</p>
+        <p>&copy; 2026 Well-Home's Realty. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -177,7 +184,8 @@
             <div class="p-5">
               <div class="flex justify-between items-start mb-2">
                 <h3 class="text-xl font-semibold text-gray-900">${property.title}</h3>
-                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">${property.status}</span>
+                <span class="${property.status === 'For Sale' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'} text-xs px-2 py-1 rounded">${property.status}</span>
+            
               </div>
               <p class="text-gray-600 text-sm mb-3"><i class="fas fa-map-marker-alt mr-1"></i> ${property.city}, ${property.state}</p>
               <div class="flex gap-4 mb-4 text-sm text-gray-600">

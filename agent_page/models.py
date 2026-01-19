@@ -52,6 +52,7 @@ class Property(models.Model):
 
 
     map_image = models.ImageField(upload_to='property_images/map_image/', blank=True, null=True)
+    is_active = models.BooleanField(default=True)
  
 
     def __str__(self):
@@ -121,3 +122,12 @@ class NearbyLocation(models.Model):
     
     def __str__(self):
         return f"{self.name} - {self.distance} {self.distance_unit}"
+
+
+class PropertyViews(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='views')
+    ip_address = models.GenericIPAddressField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"View for {self.property.title} from {self.ip_address}"
