@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Property,PropertyViews,PropertyInquiry
 
-
+from django.core.paginator import Paginator
+from django.shortcuts import render
 
 
 @api_view(['GET'])
@@ -141,4 +142,7 @@ def message_page(request):
 
 def property_admin_page(request):
     properties = Property.objects.all()
-    return render(request,'admin/properties.html',{'properties':properties})
+    paginator = Paginator(properties,8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'admin/properties.html',{'page_obj':page_obj})
