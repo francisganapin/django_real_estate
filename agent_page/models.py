@@ -1,4 +1,6 @@
 from django.db import models
+from better_profanity import profanity
+
 
 # Create your models here.
 class Property(models.Model):
@@ -16,6 +18,8 @@ class Property(models.Model):
         ('condo','Condo'),
         ('townhouse','Townhouse'),
     ]
+
+    is_active = models.BooleanField(default=False)
 
     #information 
     title = models.CharField(max_length=200)
@@ -61,6 +65,27 @@ class Property(models.Model):
     class Meta:
         verbose_name_plural = 'Properties'
 
+    def clean(self):
+        profanity.load_censor_words()
+       
+
+        if propanity.contains_profanity(self.title):
+            raise ValidationError({'title': 'Title contains profanity'})    
+        if propanity.contains_profanity(self.description):
+            raise ValidationError({'description': 'Description contains profanity'})    
+        if propanity.contains_profanity(self.address):
+            raise ValidationError({'address': 'Address contains profanity'})    
+        if propanity.contains_profanity(self.city):
+            raise ValidationError({'city': 'City contains profanity'})    
+        if propanity.contains_profanity(self.state):
+            raise ValidationError({'state': 'State contains profanity'})    
+        if propanity.contains_profanity(self.zip_code):
+            raise ValidationError({'zip_code': 'Zip code contains profanity'})    
+
+    def save(self,*args,**kwargs):
+        self.full_clean()
+        super().save(*args,**kwargs)
+        
 class PropertyFeatures(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='features')
     name = models.CharField(max_length=100)

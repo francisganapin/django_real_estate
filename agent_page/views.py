@@ -9,6 +9,7 @@ from .models import Property,PropertyViews,PropertyInquiry
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from better_profanity import profanity
 
 
 @api_view(['GET'])
@@ -139,6 +140,8 @@ def dashboard_page(request):
 
 def message_page(request):
     return render(request,'admin/messages.html')
+
+
 
 def property_admin_page(request):
     properties = Property.objects.all()
