@@ -6,19 +6,20 @@ from better_profanity import profanity
 class Property(models.Model):
 
     STATUS_CHOICES = [
-        ('for_sale','For Sale'),
-        ('for_rent','For Rent'),
-        ('sold','Sold'),
-        ('pending','Pending')
+        ('For Sale', 'For Sale'),
+        ('For Rent', 'For Rent'),
+        ('Sold', 'Sold'),
+        ('Pending', 'Pending')
     ]
 
     TYPE_CHOICES = [
-        ('house','House'),
-        ('apartment','Apartment'),
-        ('condo','Condo'),
-        ('townhouse','Townhouse'),
+        ('House', 'House'),
+        ('Apartment', 'Apartment'),
+        ('Villa', 'Villa'),
+        ('Condo', 'Condo'),
+        ('Townhouse', 'Townhouse'),
+        ('Penthouse', 'Penthouse'),
     ]
-
     is_active = models.BooleanField(default=False)
 
     #information 
@@ -56,8 +57,7 @@ class Property(models.Model):
 
 
     map_image = models.ImageField(upload_to='property_images/map_image/', blank=True, null=True)
-    is_active = models.BooleanField(default=True)
- 
+
 
     def __str__(self):
         return self.title
@@ -69,17 +69,17 @@ class Property(models.Model):
         profanity.load_censor_words()
        
 
-        if propanity.contains_profanity(self.title):
+        if profanity.contains_profanity(self.title):
             raise ValidationError({'title': 'Title contains profanity'})    
-        if propanity.contains_profanity(self.description):
+        if profanity.contains_profanity(self.description):
             raise ValidationError({'description': 'Description contains profanity'})    
-        if propanity.contains_profanity(self.address):
+        if profanity.contains_profanity(self.address):
             raise ValidationError({'address': 'Address contains profanity'})    
-        if propanity.contains_profanity(self.city):
+        if profanity.contains_profanity(self.city):
             raise ValidationError({'city': 'City contains profanity'})    
-        if propanity.contains_profanity(self.state):
+        if profanity.contains_profanity(self.state):
             raise ValidationError({'state': 'State contains profanity'})    
-        if propanity.contains_profanity(self.zip_code):
+        if profanity.contains_profanity(self.zip_code):
             raise ValidationError({'zip_code': 'Zip code contains profanity'})    
 
     def save(self,*args,**kwargs):
@@ -156,3 +156,5 @@ class PropertyViews(models.Model):
 
     def __str__(self):
         return f"View for {self.property.title} from {self.ip_address}"
+
+    

@@ -165,7 +165,7 @@
     function loadProperties() {
       const propertyContainer = document.getElementById('property-container');
 
-      fetch('http://127.0.0.1:8000/api/property_api_get')
+      fetch('http://127.0.0.1:8000/api/property_api_get_clean')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

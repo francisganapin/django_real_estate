@@ -1,7 +1,6 @@
 {% extends 'admin/base.html' %}
 {% block content %}
 
-
 <!-- Properties Management Content -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   <!-- Page Header -->
@@ -98,7 +97,7 @@
             <td class="py-4 px-6 text-gray-700">{{property.status}}</td>
             <td class="py-4 px-6 font-semibold text-gray-900">{{property.price}}</td>
             <td class="py-4 px-6 text-gray-700">{{property.city}}, {{property.state}}</td>
-            <td class="py-4 px-6 text-gray-700">{{property.view_count}}</td>
+            <td class="py-4 px-6 text-gray-700">4</td>
             <td class="py-4 px-6 text-gray-700">{{property.created_at}}</td>
             <td class="py-4 px-6">
               <div class="flex gap-2">
@@ -112,6 +111,16 @@
                   title="Edit">
                   <i class="fas fa-edit"></i>
                 </button>
+
+
+                {%if property.is_active == False %}
+                <button onclick="openApproveModal({{property.id}})" class="text-green-600 hover:text-green-700 p-2"
+                  title="Approve">
+                  <i class="fas fa-check"></i>
+                </button>
+                {%endif%}
+
+
               </div>
             </td>
           </tr>
@@ -364,23 +373,77 @@
   </div>
 </div>
 
+
+<div id="approveModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+    <div class="p-6 border-b flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+        <i class="fas fa-check text-green-600 text-xl"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">Approve Property?</h3>
+    </div>
+
+    <div class="p-6">
+      <p class="text-gray-600">
+        Are you sure you want to approve this property? It will become visible on the public site immediately.
+      </p>
+    </div>
+
+    <div class="p-4 bg-gray-50 rounded-b-lg flex justify-end gap-3">
+      <button onclick="closeApproveModal()"
+        class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">
+        Cancel
+      </button>
+      <button onclick="confirmApprove()"
+        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold shadow-sm">
+        Yes, Approve It
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <script>
+  let propertyIdToApprove = null;
 
+  function openApproveModal(id) {
+    propertyIdToApprove = id;
+    document.getElementById('approveModal').classList.remove('hidden');
+  }
 
-  function handleLogout() {
-    if (confirm('Are you sure you want to logout?')) {
-      localStorage.removeItem('adminLoggedIn');
-      localStorage.removeItem('adminEmail');
-      window.location.href = 'login.html';
+  function closeApproveModal() {
+    document.getElementById('approveModal').classList.add('hidden');
+    propertyIdToApprove = null;
+  }
+
+  function confirmApprove() {
+    if (!propertyIdToApprove) {
+      alert('No property selected');
+      return;
     }
-  }
 
-  function openAddModal() {
-    document.getElementById('addModal').classList.remove('hidden');
-  }
-
-  function closeAddModal() {
-    document.getElementById('addModal').classList.add('hidden');
+    fetch(`/api/approve_property/${propertyIdToApprove}`, {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}'
+      },
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('Property approved successfully!');
+          closeApproveModal();
+          location.reload();
+        } else {
+          alert('Failed to approve property');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while approving property');
+      });
   }
 
   function viewProperty(id) {
@@ -391,6 +454,7 @@
     fetch(`/api/property_api_get_by_id/${id}`)
       .then(response => response.json())
       .then(data => {
+
         document.getElementById('edit_propertyId').value = data.id;
         document.getElementById('edit_title').value = data.title;
         document.getElementById('edit_type').value = data.property_type;
@@ -401,8 +465,8 @@
         document.getElementById('edit_bathrooms').value = data.bathrooms;
         document.getElementById('edit_sqft').value = data.square_feet;
         document.getElementById('edit_description').value = data.description;
-
         document.getElementById('editModal').classList.remove('hidden');
+
       })
       .catch(error => {
         console.error('Error fetching property details:', error);
@@ -422,18 +486,19 @@
       property_type: document.getElementById('edit_type').value,
       status: document.getElementById('edit_status').value,
       price: document.getElementById('edit_price').value,
-      address: document.getElementById('edit_location').value, // Be sure this matches how you save it (address vs city/state)
+      address: document.getElementById('edit_location').value,
       bedrooms: document.getElementById('edit_bedrooms').value,
       bathrooms: document.getElementById('edit_bathrooms').value,
       square_feet: document.getElementById('edit_sqft').value,
       description: document.getElementById('edit_description').value
     };
 
+
     fetch(`/api/update_property/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRFToken': '{{ csrf_token }}'
+        'X-CSRFToken': '{{ csrf_token }}' // Ensure csrf_token is available in context
       },
       body: JSON.stringify(data)
     })
@@ -452,6 +517,6 @@
       });
   }
 
-
 </script>
+
 {% endblock %}

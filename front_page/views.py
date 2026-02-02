@@ -1,9 +1,16 @@
 from django.shortcuts import render
-from agent_page.models import Property
+from agent_page.models import Property, PropertyViews
 from django.db import connection
 from django.shortcuts import get_object_or_404
 from collections import defaultdict
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def front_page(request):
     return render(request,'user/index.html')
@@ -25,6 +32,10 @@ def property_detail(request, id):
         ),
         id=id
     )
+    
+    # Track View
+    ip = get_client_ip(request)
+    PropertyViews.objects.create(property=property, ip_address=ip)
     
     nearby_locations = property.nearby_locations.all()
 

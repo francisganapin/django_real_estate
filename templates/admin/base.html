@@ -1,0 +1,115 @@
+<!-- Admin Header -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8">
+    <title>Admin Dashboard - DreamHome Realty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.9);
+            transform-origin: top left;
+            width: 111.11%;
+        }
+
+        /* Add this - makes the main content grow and pushes footer down */
+        body>*:not(footer):not(nav) {
+            flex-shrink: 0;
+        }
+    </style>
+
+</head>
+
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="hidden md:flex items-center gap-6">
+                <!-- Dashboard -->
+                <a href="{% url 'dashboard_page' %}"
+                    class="{% if request.resolver_match.url_name == 'dashboard_page' %}text-blue-600 font-semibold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 font-medium{% endif %} pb-1">
+                    Dashboard
+                </a>
+
+                <!-- Properties -->
+                <a href="{% url 'property_admin_page' %}"
+                    class="{% if request.resolver_match.url_name == 'property_admin_page' %}text-blue-600 font-semibold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 font-medium{% endif %} pb-1">
+                    Properties
+                </a>
+
+                <!-- Pending Properties -->
+                <a href="{% url 'property_admin_pre_dirty_page' %}"
+                    class="{% if request.resolver_match.url_name == 'property_admin_pre_dirty_page' %}text-blue-600 font-semibold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 font-medium{% endif %} pb-1">
+                    Pending Properties
+                </a>
+
+                <!-- Messages -->
+                <a href="{% url 'message_page' %}"
+                    class="{% if request.resolver_match.url_name == 'message_page' %}text-blue-600 font-semibold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 font-medium{% endif %} pb-1">
+                    Messages
+                </a>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="flex items-center gap-4">
+                <button class="text-gray-700 hover:text-blue-600 relative">
+                    <i class="fas fa-bell text-xl"></i>
+                    <span
+                        class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <img src="http://127.0.0.1:8000/media/property_images/main_image/studio_main2.png" alt="Admin"
+                        class="w-10 h-10 rounded-full">
+                    <div class="hidden md:block">
+                        <p class="text-sm font-semibold text-gray-900" id="adminName">Admin User</p>
+                        <p class="text-xs text-gray-600">Administrator</p>
+                    </div>
+                </div>
+                <button onclick="handleLogout()" class="text-gray-700 hover:text-red-600">
+                    <i class="fas fa-sign-out-alt text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+</body>
+
+</html>

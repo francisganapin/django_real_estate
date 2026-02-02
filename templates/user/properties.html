@@ -233,7 +233,7 @@
       if (filters.bedrooms) params.append('bedrooms', filters.bedrooms);
 
       const queryString = params.toString();
-      const url = `http://127.0.0.1:8000/api/property_api_get?page=${page}${queryString ? '&' + queryString : ''}`;
+      const url = `http://127.0.0.1:8000/api/property_api_get_clean?page=${page}${queryString ? '&' + queryString : ''}`;
 
       fetch(url)
         .then(response => {
